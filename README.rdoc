@@ -4,12 +4,12 @@ The CommunityResolver gem provides all that is required to respond to community
 iname resolution requests on a Rails application. The http response of the
 CommunityResolver gem is always some form of an XRD xml document.
 
-The XRI Resolution (http://docs.oasis-open.org/xri/2.0/specs/xri-resolution-V2.0.html)
+The [XRI Resolution](http://docs.oasis-open.org/xri/2.0/specs/xri-resolution-V2.0.html)
 spec is a beastly long and complicated document. This library
 implements the basic bits necessary to provide resolution services for community
 inames and may not be a complete implementation of any spec.
 
-Community inames are inames that contain a *** delegation character. For example
+Community inames are inames that contain a "*" delegation character. For example
 @llli*mike is a community iname in the @llli community. Learn more about community
 inames on the web.
 
@@ -25,9 +25,9 @@ on rubygems.org, the Rails application using CommunityResolver must also add
 === Implement the CommunityResolver::AuthorityInterface
 Implement the CommunityResolver::AuthorityInterface in the main Rails application.
 The implementation must be named CommunityResolver::ResolverAuthority. See the
-test code in test/dummy/lib/community_resolver/resolver_authority.rb for a good
+test code in **~/test/dummy/lib/community_resolver/resolver_authority.rb** for a good
 starting point. There is also a migration and an associated set of models in
-`test/dummy/db/migrate` and `test/support/models`. These files are not part of the
+**~/test/dummy/db/migrate** and **~/test/support/models**. These files are not part of the
 library code because the hosting application needs to implement the AuthorityInterface
 in its own environment and user space.
 
