@@ -1,0 +1,43 @@
+= CommunityResolver
+
+The CommunityResolver gem provides all that is required to respond to community
+iname resolution requests on a Rails application. The http response of the
+CommunityResolver gem is always some form of an XRD xml document.
+
+The XRI Resolution (http://docs.oasis-open.org/xri/2.0/specs/xri-resolution-V2.0.html)
+spec is a beastly long and complicated document. This library
+implements the basic bits necessary to provide resolution services for community
+inames and may not be a complete implementation of any spec.
+
+Community inames are inames that contain a *** delegation character. For example
+@llli*mike is a community iname in the @llli community. Learn more about community
+inames on the web.
+
+== Installation
+=== Set up the Gemfile
+Include the CommunityResolver gem in your Rails application Gemfile:
+    gem 'community_resolver', :git => 'git://github.com/mmell/community_resolver.git'
+
+CommunityResolver requires the AtLinksafe gem. Until AtLinksafe has been released
+on rubygems.org, the Rails application using CommunityResolver must also add
+    gem 'at_linksafe', :git => 'git://github.com/mmell/at_linksafe.git'
+
+=== Implement the CommunityResolver::AuthorityInterface
+Implement the CommunityResolver::AuthorityInterface in the main Rails application.
+The implementation must be named CommunityResolver::ResolverAuthority. See the
+test code in test/dummy/lib/community_resolver/resolver_authority.rb for a good
+starting point. There is also a migration and an associated set of models in
+`test/dummy/db/migrate` and `test/support/models`. These files are not part of the
+library code because the hosting application needs to implement the AuthorityInterface
+in its own environment and user space.
+
+=== Parent Iname Resolution
+Configure the parent iname (e.g. @llli) $res/auth to point to your main Rails
+application. Visit your ibroker for instructions and tools for this step.
+
+=== Routing
+This is currently a --full Rails Engine. The routes are set in config/routes.rb.
+The XRI resolution urls will be http://0.0.0.0:3000/resolve and
+http://0.0.0.0:3000/xri_proxy_resolver.
+
+This project is released under the MIT-LICENSE.
