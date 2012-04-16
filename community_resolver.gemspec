@@ -9,9 +9,10 @@ Gem::Specification.new do |s|
   s.version     = CommunityResolver::VERSION
   s.authors     = ["Mike Mell"]
   s.email       = ["mike.mell@nthwave.net"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of CommunityResolver."
-  s.description = "TODO: Description of CommunityResolver."
+  s.homepage    = "https://github.com/mmell/community_resolver"
+  s.summary     = "Community (delegated) iname resolver."
+  s.description = "The CommunityResolver gem provides all that is required to
+respond to community iname resolution requests on a Rails application."
 
   s.require_paths = ["lib"]
 

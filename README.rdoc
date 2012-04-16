@@ -19,7 +19,8 @@ Include the CommunityResolver gem in your Rails application Gemfile:
     gem 'community_resolver', :git => 'git://github.com/mmell/community_resolver.git'
 
 CommunityResolver requires the AtLinksafe gem. Until AtLinksafe has been released
-on rubygems.org, the Rails application using CommunityResolver must also add
+on rubygems.org (allowing CommunityResolver to do this in the gemspec), the Rails
+application using CommunityResolver must also add:
     gem 'at_linksafe', :git => 'git://github.com/mmell/at_linksafe.git'
 
 === Implement the CommunityResolver::AuthorityInterface
@@ -36,8 +37,11 @@ Configure the parent iname (e.g. @llli) $res/auth to point to your main Rails
 application. Visit your ibroker for instructions and tools for this step.
 
 === Routing
-This is currently a --full Rails Engine. The routes are set in config/routes.rb.
+CommunityResolver is a full Rails Engine, not mountable one. The routes are set in config/routes.rb.
 The XRI resolution urls will be http://0.0.0.0:3000/resolve and
 http://0.0.0.0:3000/xri_proxy_resolver.
+
+This project was originally available in the vendor/plugins of the Linksafe Ibroker
+on [Soureforge](http://linksafe.svn.sourceforge.net/viewvc/linksafe/rails/ibroker/trunk/vendor/plugins/at_linksafe_resolver)
 
 This project is released under the MIT-LICENSE.

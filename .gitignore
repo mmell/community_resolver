@@ -1,7 +1,6 @@
 *.bbprojectd
 *.gem
 .bundle
-Gemfile.lock
 pkg/*
 .DS_Store
 test/dummy/log/*.log
