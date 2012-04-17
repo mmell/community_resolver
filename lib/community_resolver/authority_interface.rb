@@ -1,3 +1,5 @@
+require 'community_resolver/abstract_interface'
+
 # The Rails app that includes the CommunityResolver gem must implement the
 #   AuthorityInterface as CommunityResolver::Authority
 #
