@@ -6,5 +6,6 @@ Rails.application.routes.draw do
     :constraints => {
       :action => /#{CommunityResolver::Path::Authority}|#{CommunityResolver::Path::Proxy}/
     },
+    :format => false,
     :via => [:get, :post]
 end
