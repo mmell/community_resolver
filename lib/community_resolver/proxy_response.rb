@@ -49,12 +49,13 @@ module CommunityResolver
       hsh = CGI::parse(query_string)
       secondary_hsh = {}
       hsh.each { |k,v|
-        next if v.nil?
+        next if v.blank?
         v = v.first # v is an array!?
         secondary_args = v.split(';')
         hsh[k] = secondary_args.shift
         next if secondary_args.empty?
         secondary_args.each { |one_pair|
+          next if one_pair.blank?
           pair = one_pair.split('=')
           secondary_hsh[pair[0]] = pair[1]
         }
